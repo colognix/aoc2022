@@ -1,14 +1,10 @@
 import string
 
-def read_input_day3():
-    ret = []
+def read_input():
     with open("../input/in_day3.txt") as f:
-        raw_input = f.read()
-        # windows handling
-        raw_input = raw_input.replace('\r','')
-        return raw_input.split('\n')
+        return [l.strip()  for l in f.readlines()]
     
-sacks = read_input_day3()
+sacks = read_input()
 
 priority = {}
 i = 1
@@ -18,7 +14,7 @@ for lit in string.ascii_lowercase:
 for lit in string.ascii_uppercase:
     priority[lit] = i
     i += 1
-    
+
 # part 1
 res = 0
 for sack in sacks:
